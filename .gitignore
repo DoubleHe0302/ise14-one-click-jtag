@@ -1,0 +1,6 @@
+*.log
+*.bit
+*.mcs
+*.prm
+*.cfi
+_ise_generic_*
