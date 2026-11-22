@@ -2,6 +2,14 @@
 
 Windows 批处理脚本：从 Xilinx ISE `.xise` 工程自动生成 `.bit`，并通过 iMPACT 下载到 FPGA 或写入 SPI Flash。复制脚本到工程目录即可使用，无需安装额外脚本。
 
+## 项目背景
+
+Vivado 主要面向 7 系列及更新的 FPGA；对于 Spartan-6、Virtex-6 等较早器件，仍需要使用 ISE 等旧版工具。不同系列与版本的支持范围并不完全相同，请以 [AMD ISE 14.7 器件支持说明](https://www.amd.com/en/support/downloads/adaptive-socs-and-fpgas/legacy-ise/v2012_4---14_7.html) 和实际器件文档为准。
+
+在使用 ISE 开发 Spartan-6 工程时，每次修改参数后，都要重复完成综合、实现、生成配置文件和 iMPACT 下载；如果需要断电保存，还要生成 MCS 并擦写、校验 Flash。通过图形界面逐步操作比较繁琐，反复调试时也容易遗漏步骤。
+
+因此，本项目借助 AI（GPT-6.1 Sol）辅助编写了两个 Windows 脚本，将这些重复操作串联起来：一个用于快速临时下载，另一个用于 SPI Flash 擦写。脚本已经过实际板卡测试，但不同硬件和工程仍需核对配置、检查日志并验证输出。
+
 | 脚本 | 操作 | 断电后 |
 | --- | --- | --- |
 | [universal_program.bat](universal_program.bat) | 编译并通过 JTAG 配置 FPGA | 临时配置丢失 |
@@ -35,3 +43,4 @@ Windows 批处理脚本：从 Xilinx ISE `.xise` 工程自动生成 `.bit`，并
 ## 许可证
 
 [MIT License](LICENSE)。Xilinx、AMD、ISE、iMPACT 等名称和软件属于其各自权利人，本项目不附带或重新分发这些软件。
+
