@@ -15,6 +15,14 @@ Vivado 主要面向 7 系列及更新的 FPGA；对于 Spartan-6、Virtex-6 等�
 | [universal_program.bat](universal_program.bat) | 编译并通过 JTAG 配置 FPGA | 临时配置丢失 |
 | [universal_flash.bat](universal_flash.bat) | 编译、生成 MCS，擦写并请求校验 SPI Flash | FPGA 可从配置正确的 Flash 重新启动 |
 
+## 实际硬件连接
+
+下图为项目测试时使用的正点原子 Spartan-6 开发板与 JTAG 下载器连接实物。下载器通过排线连接开发板的 JTAG 接口；板卡连接供电，排针引出了测试信号。实际接线和供电方式请以所用开发板及下载器的说明为准。
+
+![Spartan-6 开发板与 JTAG 下载器的实物连接](docs/images/spartan6-jtag-setup.jpg)
+
+进行下载或 Flash 擦写前，请关闭受 FPGA 引脚状态变化影响的外部驱动和功率级电源，并保持开发板和下载器正常供电。
+
 ## 开始使用
 
 1. 安装 Windows 版 ISE 14.7，保证 `xtclsh`、`promgen`、`impact` 和 JTAG 驱动可以正常工作。ISE 软件和下载器不包含在本仓库。
