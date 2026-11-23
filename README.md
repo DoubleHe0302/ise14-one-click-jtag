@@ -15,6 +15,10 @@ Vivado 主要面向 7 系列及更新的 FPGA；对于 Spartan-6、Virtex-6 等�
 | [universal_program.bat](universal_program.bat) | 编译并通过 JTAG 配置 FPGA | 临时配置丢失 |
 | [universal_flash.bat](universal_flash.bat) | 编译、生成 MCS，擦写并请求校验 SPI Flash | FPGA 可从配置正确的 Flash 重新启动 |
 
+## PWM_40k 工程专用示例
+
+[查看 PWM_40k 工程专用脚本及使用说明](examples/pwm_40k/README.md)。该示例保留了实际工程中的两个批处理及其配套文件，固定使用 PWM_40k 工程名称、JTAG 位置和板卡 Flash 配置；其他工程请参考上面的通用脚本。
+
 ## 实际硬件连接
 
 下图为项目测试时使用的正点原子 Spartan-6 开发板与 JTAG 下载器连接实物。下载器通过排线连接开发板的 JTAG 接口；板卡连接供电，排针引出了测试信号。实际接线和供电方式请以所用开发板及下载器的说明为准。
